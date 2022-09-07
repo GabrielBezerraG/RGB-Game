@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./reset.css">
+   <link rel="stylesheet" href="./style.css">
+   <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+   <title>RGB Guessing Game</title>
+</head>
+<body>
+   <div class="container">
+      <header class="header">
+         <h1 class="rgb-title">RGB Guessing Game</h1>
+         <h2 data-color class="rgb-subtitle">Color: </h2>
+         
+      </header>
+      <nav class="options">
+         <input data-reset type="button" class="button reset" value="Reset">
+         <span data-score class="score"></span>
+         <div class="levels">
+            <input data-level type="button" class="button" value="Easy">
+            <input data-level type="button" class="button" value="Medium">
+            <input data-level type="button" class="button" value="Hard">
+         </div>
+      </nav>
+      <main class="game" data-game>
+         
+      </main>
+   </div>
+   <script src="./main.js"></script>
+</body>
+</html>

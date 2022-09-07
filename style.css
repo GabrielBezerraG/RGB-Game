@@ -1,0 +1,127 @@
+:root {
+   --background: rgb(240, 240, 240);
+   --dark-background: rgb(53, 53, 53);
+}
+
+body {
+   font-size: 1.2rem;
+   font-family: 'Hind Siliguri', sans-serif;
+   color: #0c0c0c;
+   background-color: grey;
+}
+
+.container {
+   min-width: 400px;
+   max-width: 1080px;
+   margin: 0 auto;
+}
+
+.header {
+   text-align: center;
+   padding: 1rem;
+   margin: 0 0 0.75rem;
+}
+
+.rgb-title {
+   font-size: 2.5rem;
+   margin-bottom: 0.5rem;
+}
+
+.rgb-subtitle {
+   margin-bottom: 0.5rem;
+   font-size: 2rem;
+}
+
+.options {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   background-color: var(--background);
+   padding: 0 1.5rem;
+}
+
+.options input {
+   cursor: pointer;
+}
+
+.levels {
+   display: flex;
+   align-items: baseline;
+   column-gap: 0.5rem;
+   box-sizing: border-box;
+}
+
+
+.button {
+   outline: none;
+   font-size: inherit;
+   font-family: inherit;
+   background-color: inherit;
+   padding: inherit;
+   border: none;
+   cursor: pointer;
+}
+
+.level--active {
+   background-color: grey;
+   color: white;
+   padding: 0 0.5rem;
+}
+
+.reset {
+   padding: 0;
+}
+
+.game {
+   background-color: var(--dark-background);
+   display: grid;
+   padding: 1.5rem 1rem;
+   grid-template-columns: repeat(3, 28vmin);
+   grid-auto-rows: 28vmin;
+   justify-content: center;
+   align-content: center;
+   gap: 0.75rem;
+}
+
+.color-block {
+   cursor: pointer;
+}
+
+.mode {
+   background-color: var(--background);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+   body {
+      font-size: 1.2rem;
+   }
+   
+   .header {
+      margin: 1rem 0 1.5rem;
+   }
+   
+   .rgb-title {
+      font-size: 2.75rem;
+   }
+   
+   .rgb-subtitle {
+      margin-bottom: 0.5rem;
+      font-size: 2.25rem;
+   }
+
+   .options {
+      padding: 0 1.5rem;
+   }
+
+   .game {
+      padding: 3rem 2rem;
+      grid-template-columns: repeat(3, 20vmin);
+      grid-auto-rows: 20vmin;
+   }
+}
+
