@@ -1,13 +1,17 @@
+const body = document.querySelector('body');
 const reset = document.querySelector('[data-reset]');
 const scoreElement = document.querySelector('[data-score]');
+const modeButton = document.querySelector('[data-mode-button]');
+const modeMenu = document.querySelector('[data-mode-menu]');
 const levelButtons = document.querySelectorAll('[data-level]');
 const [easy, medium, hard] = levelButtons;
+const tooltip = document.querySelector('[data-tooltip');
 const game = document.querySelector('[data-game]');
-const body = document.querySelector('body');
+const background = document.querySelector('[data-background]');
 const titleColor = document.querySelector('[data-color]');
 
 const modes = ['Easy', 'Medium', 'Hard'];
-let mode = 'Medium';
+let currentMode = 'Medium';
 let colors = [];
 let newColor;
 let chosenColor;
@@ -35,14 +39,24 @@ function guessColor(block) {
       const blocks = document.querySelectorAll('[data-block]');
       if (blocks[chosenColor] == e.target) {
          const chosenColorRgb = colors[chosenColor];
-         body.style.backgroundColor = `rgb(${chosenColorRgb},0.5)`;
-         alert("Well done! 1+ point");
+         background.style.backgroundColor = `rgb(${chosenColorRgb},0.5)`;
+         showTooltip("Well done! +1 point");
          score++;
          newGame();
       } else {
-         alert("Wrong!");
+         showTooltip("Wrong, try again!");
       }
    })
+}
+
+function showTooltip(text) {
+   tooltip.classList.remove('tooltip--transition');
+   tooltip.classList.remove('tooltip--hidden');
+   tooltip.innerText = text;
+   setTimeout(()=> {
+      tooltip.classList.add('tooltip--transition');
+      tooltip.classList.add('tooltip--hidden');  
+   }, 750)
 }
 
 
@@ -86,19 +100,19 @@ function newGame() {
 
    chosenColor = Math.round(Math.random() * (checkMode() - 1));
    
-   titleColor.innerText = `Color: ${colors[chosenColor]}`
+   titleColor.innerText = `Color: (${colors[chosenColor][0]}, ${colors[chosenColor][1]}, ${colors[chosenColor][2]})`
 }
 
 function checkMode() {
-   if (mode == 'Easy') return 3;
-   else if (mode == 'Medium') return 6;
-   else if (mode == 'Hard') return 9;
+   if (currentMode == 'Easy') return 3;
+   else if (currentMode == 'Medium') return 6;
+   else if (currentMode == 'Hard') return 9;
 }
 
 function styleLevels() {
    levelButtons.forEach((level, index) => {
       level.classList.remove('level--active');
-      if (levelButtons[index].value == mode) {
+      if (levelButtons[index].value == currentMode) {
          levelButtons[index].classList.add('level--active');
          return
       }
@@ -108,13 +122,24 @@ function styleLevels() {
 
 levelButtons.forEach((level, index) => {
    level.addEventListener('click', ()=> {
-      mode = modes[index];
+      currentMode = modes[index];
       newGame();
    })
 })
 
 reset.addEventListener('click', ()=> {
    newGame();
+});
+
+modeButton.addEventListener('click', ()=> {
+   modeMenu.classList.toggle('levels--hidden');
+});
+
+body.addEventListener('click', e => {
+   const path = e.composedPath();
+   if (!path.includes(modeMenu) && !path.includes(modeButton)) {
+      modeMenu.classList.add('levels--hidden')
+   }
 });
 
 newGame();

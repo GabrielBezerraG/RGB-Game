@@ -1,0 +1,25 @@
+.game {
+   background-color: var(--dark-background);
+   display: grid;
+   padding: 1.5rem 1rem;
+   grid-template-columns: repeat(3, 28vmin);
+   grid-auto-rows: 28vmin;
+   justify-content: center;
+   align-content: center;
+   gap: 0.75rem;
+}
+
+.color-block {
+   cursor: pointer;
+}
+
+
+@media screen and (min-width: 768px) {
+   
+   .game {
+      padding: 3rem 2rem;
+      grid-template-columns: repeat(3, 20vmin);
+      grid-auto-rows: 20vmin;
+   }
+}
+

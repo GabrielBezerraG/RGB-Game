@@ -1,0 +1,75 @@
+.options {
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   background-color: var(--white-background);
+   padding: 0 1.5rem;
+}
+
+.options input {
+   cursor: pointer;
+}
+
+.mode-button {
+   cursor: pointer;
+}
+
+.mode-button__arrow {
+   margin-left: 0.5rem;
+   font-size: 1rem;
+}
+
+.levels {
+   position: absolute;
+   top: 100%;
+   right: 0;
+   width: 8rem;
+   display: flex;
+   background-color: var(--white-background);
+   flex-direction: column;
+   align-items: stretch;
+   box-sizing: border-box;
+}
+
+.levels--hidden {
+   display: none;
+}
+
+.button {
+   outline: none;
+   font-size: inherit;
+   font-family: inherit;
+   background-color: inherit;
+   padding: inherit;
+   border: none;
+   cursor: pointer;
+}
+
+.level--active {
+   background-color: var(--dark-background);
+   color: var(--white-background);
+   padding: 0 0.5rem;
+}
+
+.reset {
+   padding: 0;
+}
+
+
+@media screen and (min-width: 768px) {
+
+   .options {
+      padding: 0 1.5rem;
+   }
+
+   .levels {
+      display: flex;
+      position: static;
+      flex-direction: row;
+      align-items: baseline;
+      column-gap: 0.5rem;
+      top: 0;
+      width: auto;
+   }
+}

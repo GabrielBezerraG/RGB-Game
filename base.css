@@ -1,0 +1,32 @@
+:root {
+   --white-font: #ffffff;
+   --white-background: #f7f7f7;
+   --main-background: #8a8a8a;
+   --dark-background: #353535;
+   --black-font: #0c0c0c;
+}
+
+body {
+   font-size: 1.2rem;
+   font-family: 'Hind Siliguri', sans-serif;
+   color: var(--black-font);
+}
+
+.container {
+   max-width: 1440px;
+   margin: 0 auto;   
+   background-color: var(--main-background);
+   height: 100vh;
+}
+
+
+.mobile-only {
+   display: block;
+}
+
+@media screen and (min-width: 768px) {
+
+   .mobile-only {
+      display: none;
+   }
+}
